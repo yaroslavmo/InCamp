@@ -2,8 +2,9 @@ package institution;
 
 import person.Student;
 import java.util.ArrayList;
+import java.util.List;
 
-public class University {
+public class University extends ListKnowledgeSources implements KnowledgeSource{
 	public String name;
 	
 	public Double avarageKnowledge;
@@ -32,13 +33,19 @@ public class University {
     
     public void addStudent(Student student) {
        this.setStudent(student);
-       int summ = 0;
-       
-   		try {
-   			for(Student s : this.getStudents()) {
-   				summ += s.getKnowledge().level;
-   			}
-   			this.avarageKnowledge = (double) (summ / this.getStudents().size());
-   		}catch (Exception e){}
+
+    }
+
+
+	private boolean isPresent(Student student) {
+		return studentsList.stream()
+				.anyMatch(universityStudent -> universityStudent.getName().equals(student.getName()));
+	}
+
+
+    @Override
+    public void tutor(Student student) {
+        student.incresePractiseScills(practicalKnowledge);
+        student.increseTheoryScills(theoryKnowledge);
     }
 }
