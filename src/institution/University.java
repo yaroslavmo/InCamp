@@ -32,13 +32,6 @@ public class University {
     
     public void addStudent(Student student) {
        this.setStudent(student);
-       int summ = 0;
-       
-   		try {
-   			for(Student s : this.getStudents()) {
-   				summ += s.getKnowledge().level;
-   			}
-   			this.avarageKnowledge = (double) (summ / this.getStudents().size());
-   		}catch (Exception e){}
+
     }
 }
