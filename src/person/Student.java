@@ -1,9 +1,10 @@
 package person;
 
+import institution.KnowledgeSource;
 import person.consciousness.Knowledge;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Student {
+public class Student implements KnowledgeSource {
 	private Knowledge knowledge;
 	public String name;
 	public double learningCoefficient = 0.5;
@@ -49,4 +50,9 @@ public class Student {
         return this.getName();
     }
 
+    @Override
+    public void tutor(Student student) {
+        student.incresePractiseScills(5);
+        student.increseTheoryScills(4);
+    }
 }

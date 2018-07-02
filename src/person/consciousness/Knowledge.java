@@ -28,7 +28,8 @@ public class Knowledge {
     public Knowledge(double theoryScills, double practicalScills, double studentKnowledgeCoefficcient) {
         this.theoryScills = theoryScills;
         this.practicalScills = practicalScills;
-        this.level = (theoryScills + practicalScills) * studentKnowledgeCoefficcient;
+        this.studentKnowledgeCoefficcient = studentKnowledgeCoefficcient;
+        this.level = (this.theoryScills + this.practicalScills) * this.studentKnowledgeCoefficcient;
     }
 
 }
