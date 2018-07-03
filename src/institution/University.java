@@ -2,29 +2,28 @@ package institution;
 
 import person.Student;
 import java.util.ArrayList;
-import java.util.List;
 
-public class University extends ListKnowledgeSources implements KnowledgeSource{
+public class University extends KnowledgeSourceScills implements KnowledgeSource{
 	public String name;
 	
 	public Double avarageKnowledge;
-	private ArrayList<Student> students = new ArrayList<Student>(); // or use HashMap to store student id as a key 
+	private ArrayList<Student> studentsList = new ArrayList<Student>(); // or use HashMap to store student id as a key
 	
     public University(String name) {
     	this.name = name;
     }
 
     public void setStudent(Student student) {
-    	this.students.add(student);
+    	this.studentsList.add(student);
     }
     
-    public ArrayList<Student> getStudents() {
-    	return this.students;
+    public ArrayList<Student> getStudentsList() {
+    	return this.studentsList;
     }
 
     public Student getStudent(String name) {
-    	for (Student student : this.students){
-    		if(student.getName() == name) {	
+    	for (Student student : this.studentsList){
+    		if(student.getName().equals(name)) {
     	    	return student;
     		}    			
     	}
@@ -45,7 +44,9 @@ public class University extends ListKnowledgeSources implements KnowledgeSource{
 
     @Override
     public void tutor(Student student) {
-        student.incresePractiseScills(practicalKnowledge);
-        student.increseTheoryScills(theoryKnowledge);
+        if (this.isPresent(student)) {
+            student.incresePractiseScills(practicalKnowledge);
+            student.increseTheoryScills(theoryKnowledge);
+        }
     }
 }

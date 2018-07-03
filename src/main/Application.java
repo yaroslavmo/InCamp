@@ -15,37 +15,34 @@ public class Application {
         universities.get(0).addStudent(new Student("Maria Perechrest", 0.5));
         universities.get(0).addStudent(new Student("Bogdan Kulimov", 0.5));
         System.out.println(universities.get(0).name);
-    	for(Student student : universities.get(0).getStudents()) {
+    	for(Student student : universities.get(0).getStudentsList()) {
             System.out.println(student.getName());
         }
-    	System.out.println("Avarage:" + universities.get(0).avarageKnowledge);
-    	
+
         universities.add(new University("CH.N.U."));
         universities.get(1).addStudent(new Student("Josie Sewell", 0.5));
         universities.get(1).addStudent(new Student("Tiffani Allan", 0.5));
         universities.get(1).addStudent(new Student("Johnson Straker", 0.5));
         universities.get(1).addStudent(new Student("Marc Kriger", 0.5));
         System.out.println(universities.get(1).name);
-    	for(Student student : universities.get(1).getStudents()) {
+    	for(Student student : universities.get(1).getStudentsList()) {
             System.out.println(student.getName());
         }
-    	System.out.println("Avarage:" + universities.get(0).avarageKnowledge);
-    	
+
     	universities.add(new University("CH.D.T.U."));
     	universities.get(2).addStudent(new Student("Evelina Steven", 0.5));
     	universities.get(2).addStudent(new Student("Harrison Lobb", 0.5));
     	universities.get(2).addStudent(new Student("Sheldon Wilborn", 0.5));
     	universities.get(2).addStudent(new Student("Lynna Nordeen", 0.5));
         System.out.println(universities.get(2).name);
-        for(Student student : universities.get(2).getStudents()) {
+        for(Student student : universities.get(2).getStudentsList()) {
             System.out.println(student.getName());
         }
-        System.out.println("Avarage:" + universities.get(0).avarageKnowledge);
 
         
         Internship internship = new Internship("Interlink");
         for(University university : universities) {
-        	for(Student student : university.getStudents()) {
+        	for(Student student : university.getStudentsList()) {
                 	internship.setStudent(student);
             }
         }

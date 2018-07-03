@@ -2,26 +2,34 @@ package person.consciousness;
 
 
 public class Knowledge {
+
+
     private double level;
     private double practicalScills;
     private double theoryScills;
     private double studentKnowledgeCoefficcient;
 
+    public double getLevel() {
+        return level;
+    }
 
     public double getPracticalScills() {
+
         return practicalScills;
     }
 
-    public void setPracticalScills(double practicalScills) {
-        this.practicalScills = practicalScills;
+    public void Practise(double practicalScills) {
+
+        this.practicalScills =+ practicalScills;
     }
 
     public double getTheoryScills() {
         return theoryScills;
     }
 
-    public void setTheoryScills(double theoryScills) {
-        this.theoryScills = theoryScills;
+    public void studyTheoryScills(double theoryScills) {
+
+        this.theoryScills =+ theoryScills;
     }
 
 

@@ -2,12 +2,13 @@ package person;
 
 import institution.KnowledgeSource;
 import person.consciousness.Knowledge;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Student implements KnowledgeSource {
-	private Knowledge knowledge;
-	public String name;
-	public double learningCoefficient = 0.5;
+    private Knowledge knowledge;
+    public String name;
+    public double learningCoefficient = 0.5;
     private boolean hasNotebook = true;
 
 
@@ -15,36 +16,39 @@ public class Student implements KnowledgeSource {
         this.hasNotebook = hasNotebook;
     }
 
-	
+
     public Student(String name, double learningCoefficient) {
-    	this.name = name;
-    	this.learningCoefficient = learningCoefficient;
-    	this.setKnowledge(new Knowledge(1,1, learningCoefficient));   //knowledge that will come from file or db
+        this.name = name;
+        this.learningCoefficient = learningCoefficient;
+        this.setKnowledge(new Knowledge(1, 1, learningCoefficient));
     }
 
     public String getName() {
-    	return this.name;
+        return this.name;
     }
-    
+
     public void setKnowledge(Knowledge knowledge) {
-    	this.knowledge = knowledge;
+        this.knowledge = knowledge;
     }
-    
+
     public Knowledge getKnowledge() {
-    	return this.knowledge;
+        return this.knowledge;
     }
 
-    public void incresePractiseScills(double level){
-        this.knowledge.setPracticalScills(this.knowledge.getPracticalScills() + level);
-    };
+    public void incresePractiseScills(double level) {
+        this.knowledge.Practise(level);
+    }
 
-    public void increseTheoryScills(double level){
-        this.knowledge.setTheoryScills(this.knowledge.getTheoryScills() + level);
-    };
+
+    public void increseTheoryScills(double level) {
+        this.knowledge.studyTheoryScills(level);
+    }
+
 
     public boolean hasNotebook() {
         return this.hasNotebook;
-    };
+    }
+
     @Override
     public String toString() {
         return this.getName();
